@@ -1,0 +1,15 @@
+/* Global resets */
+
+/* GLobal class */
+.question {
+    background-color: aquamarine;
+}
+
+.answer {
+    background-color: blueviolet;
+}
+
+.score {
+    background-color: blanchedalmond;
+}
+/* Custom class */
