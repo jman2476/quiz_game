@@ -1,0 +1,39 @@
+/* Global resets */
+* {
+    background-color: #b0081335;
+}
+
+/* GLobal class */
+.row, .column {
+    display: flex;
+}
+
+.column {
+    flex-direction: column;
+}
+
+.hide {
+    display: none;
+}
+
+.text-center {
+    text-align: center
+}
+
+.justify-around {
+    justify-content: space-around;
+}
+
+/* Custom class */
+.question-text {
+    font-size: 150%;
+    color:indigo;
+    background-color:antiquewhite;
+}
+
+#choices button {
+    background-color: #b00bae;
+    color: wheat;
+    font-size: 120%;
+}
+
