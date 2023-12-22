@@ -1,7 +1,7 @@
 // select HTML elements
-// select the questions div
-// select the choices div
-// select the start div
+var questionDiv = document.querySelector('.question-wrap')// select the questions div
+var choicesDiv = document.querySelector('#choices') // select the choices div
+var startDiv = document.querySelector('.start-wrap') // select the start div
 // select start button
 // select score wrap
 
@@ -71,6 +71,33 @@ function startTimer() {
     }, 1000)
 }
 
+// Display the highscores as an ordered list, along with a button to restart the game
+function displayHighscores () {
+    // get high score array from localStorage
+
+    // sort array in order of score
+
+    // display an ordered list 
+}
+
+// Get old scores from local storage and add new object to high scores, and overwrite old list with new list
+function saveScores(score) {
+    // set initials input to a variable
+    var initialsText = document.querySelector('#user-initials')
+    // store user's initials
+    var userInitials = initialsText.ariaValueMax;
+    // pull raw highscores array from localStorage if it exists, if not create an empty array so we don't try to store the data to null, because that won't work
+
+    // push a new object to the highscore array
+
+    // each object should have initials: and score: properties
+
+    // store new highscore array to localStorage
+
+    // navigate user to the highscores page
+    
+}
+
 // Start quiz by showing first question, hide start wrap and start timer
 function startQuiz() {
     // display initial time
@@ -84,3 +111,5 @@ function startQuiz() {
     // display first question
     displayQuestion();
 }
+
+//event listeners for buttons '
