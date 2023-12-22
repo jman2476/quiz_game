@@ -1,24 +1,26 @@
 // select HTML elements
-var questionDiv = document.querySelector('.question-wrap')// select the questions div
-var choicesDiv = document.querySelector('#choices') // select the choices div
-var startDiv = document.querySelector('.start-wrap') // select the start div
-// select start button
-// select score wrap
-
+var questionDiv = document.querySelector('.question-wrap')   // select the questions div
+var choicesDiv = document.querySelector('#choices')          // select the choices div
+var startDiv = document.querySelector('.start-wrap')         // select the start div
+var startBtn = document.querySelector('#start-button')       // select start button
+var startingText = document.querySelector('#start-text')   // select start div paragraph
+var scoreDiv = document.querySelector('.score-wrap')         // select score wrap
+var timeDisplay = document.querySelector('.time-display')    // select the timer header
 //create global variables: questionIndex, time, timer
 var questionIndex = 0; // tracks which question object in the array the quiz is on
-var time = 60; // initializes time remaining as 60 seconds
-var timer; // will contain JS interval for the timer
+var time = 60;         // initializes time remaining as 60 seconds
+var timer;             // will contain JS interval for the timer
+var clicked = false;   // to track whetehr the user has clicked yet per question
+
+// Tell user about the quiz in the starting text
+startingText.innerText = 'This quiz has ' + questionsJS.length + ' questions and you\'ll have ' + time + ' seconds to answer them. For each error, you lose 10 seconds. Are you ready?'
 
 // function to handle the end of the game and displaying scores
 function endGame() {
     // end the timer interval
 
     // set user score to variable
-    
-    // reinitialize time = 60, questionIndex = 0
-    time = 60;
-    questionIndex = 0;
+
     // show score wrap, display the user's score
 
     // hide question wrap
@@ -33,7 +35,7 @@ function checkAnswer(eventObj) {
     // set current question object to variable
 
     // check that a button was indeed pressed, because bubbles exist, and not just for the sake of thin film interference.
-    if (clickedObj.tagName === 'BUTTON'){
+    if (clickedObj.tagName === 'BUTTON') {
         // select answer alert element
 
         // select innerText of clicked object
@@ -62,17 +64,26 @@ function displayQuestion() {
 
 }
 
+// function to handle the inside of the timer interval
+function runTimer() {
+    time--; // decrement time by 1
+    timeDisplay.innerText = 'Time: ' + (time >= 0 ? time : 0); // output the time left
+
+    // if time <= 0, end the game
+    if (time <= 0) {
+        endGame()
+    }
+}
+
 // function to start the countdown timer, decreasing the time by 1 per second until time = 0
 // or until all questions are asked
 function startTimer() {
     // start interval that time-- every second, store to timer variable
-    timer = setInterval(function() {
-
-    }, 1000)
+    timer = setInterval(runTimer, 1000)
 }
 
 // Display the highscores as an ordered list, along with a button to restart the game
-function displayHighscores () {
+function displayHighscores() {
     // get high score array from localStorage
 
     // sort array in order of score
@@ -95,21 +106,26 @@ function saveScores(score) {
     // store new highscore array to localStorage
 
     // navigate user to the highscores page
-    
+
 }
 
 // Start quiz by showing first question, hide start wrap and start timer
 function startQuiz() {
+    // reinitialize time = 60, questionIndex = 0 in case game has already run
+    time = 10;
+    questionIndex = 0;
     // display initial time
-
+    timeDisplay.innerText = 'Time: ' + time;
     // hide start wrap
-
+    startDiv.classList.add('hide')
     // show question wrap
-
+    questionDiv.classList.remove('hide')
     // start timer
     startTimer();
     // display first question
     displayQuestion();
 }
 
-//event listeners for buttons '
+//event listeners for buttons for choices and start game
+startBtn.addEventListener('click', startQuiz)
+choicesDiv.addEventListener('click', checkAnswer)
