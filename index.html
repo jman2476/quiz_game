@@ -1,13 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
 </head>
+
 <body>
-    
+    <!-- Header that shows a link to highscores page and the time remaining -->
+    <header class="row justify-around">
+        <a href="./highscores.html">Highscores</a>
+        <h3 class="time-display">Time: 0</h3>
+    </header>
+
+    <!-- div to wrap the starting section -->
+    <div class="start-wrap">
+        <h2>Javascript challenge quiz</h2>
+        <p>Are you ready to be tested? Let's find out how good you are!</p>
+        <button id="start">Start quiz</button>
+    </div>
+
+    <!-- div to wrap the quiz questions setion, hide initially -->
+    <div class="question-wrap ">
+        <!-- Each quiz question will be inserted into the h3 -->
+        <h3 class="question-text text-center">Placeholder</h3>
+        <!-- Each answer choice will be inserted into a button in the div below -->
+        <div id="choices" class="column">
+            <button>test</button>
+            <button>test</button>
+            <button>test</button>
+            <button>test</button>
+        </div>
+        <!-- Tell the user whether they answered the previous question correctly -->
+        <p class="answer-alert"></p>
+    </div>
+
+    <!-- div to wrap the score input section, hide initially -->
+    <div class="score-wrap hide">
+        <h2 id="score-display"></h2>
+        <p>Save your score, or it shall be lost to the sands of time!</p>
+        <input type="text" id="user-initials" placeholder="Enter your initials">
+        <button id="save-score">Save your high score</button>
+    </div>
+
+    <!-- import javascript to make the quiz run -->
     <script src="assets/javascript/questions.js"></script>
     <script src="assets/javascript/script.js"></script>
 </body>
+
 </html>
