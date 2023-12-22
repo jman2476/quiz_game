@@ -1,6 +1,11 @@
 /* Global resets */
 * {
     background-color: #b0081335;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+body {
+    background-color:transparent;
 }
 
 /* GLobal class */
@@ -25,6 +30,26 @@
 }
 
 /* Custom class */
+header * {
+    align-self: center;
+    text-decoration: none;
+    font-size: 120%;
+    color: #8008aa;
+    background-color: antiquewhite;
+    padding: 2px 3px;
+}
+
+.start-wrap {
+    max-width: 50 vw;
+    margin: 200px;
+    font-size: 120%;
+    padding: 3px 5px;
+}
+
+#start-button {
+    font-size: 90%;
+}
+
 .question-text {
     font-size: 150%;
     color:indigo;
