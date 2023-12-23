@@ -53,7 +53,7 @@ header * {
     padding: 3px 5px;
 }
 
-.question-text {
+.question-text, .answer-alert {
     font-size: 150%;
     color:indigo;
     background-color:antiquewhite;
